@@ -7,10 +7,16 @@ function NavBar(props) {
     
    <nav>
             <ul>
+                <Link to ='/Login'>
+                    <li>Login</li>
+                </Link>
+                <Link to ='/Register'>
+                    <li>Register</li>
+                </Link>
                 <Link to ='/Home'>
                     <li>Home</li>
                 </Link>
-                <Link to ='/Products'>
+                <Link to ='/DisplayProducts'>
                     <li>Products</li>
                 </Link>
                 <Link to ='/ShoppingCart'>

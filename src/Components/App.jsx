@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
-import NavBar from './NavBar/NavBar';
+import NavBar from './NavBar/NavBar'; 
+import DisplayProducts from './DisplayProducts/DisplayProducts';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
+
 
 // const tokenFromStorage = localStorage.getItem('token');
 // localStorage.removeItem('token')
@@ -60,15 +63,27 @@ class App extends Component {
         }
     }
 
+    getAllProducts = async () => {
+        console.log()
+        let response = await axios.get('https://localhost:44394/api/Product')
+        this.setState({
+            products: response.data
+        });
+    }
+
     render() {
         return (
             <div>
                 <NavBar/>
-                <Login loginUser={this.loginUser}/>
-                <Register registerNewUser={this.registerNewUser}/>
-                
-                
+                <Switch>
+
+                <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
+                <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
+                <Route path='/DisplayProducts' render={props => <DisplayProducts {...props} getAllProducts={this.getAllProducts}/>} />               
+
+                </Switch>
             </div>
+
         )
     }
 }
