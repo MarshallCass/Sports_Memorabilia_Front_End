@@ -4,12 +4,16 @@ import './NavBar.css';
 
 function NavBar(props) {
     return (
-        <ul id="nav">
-            <li><a>Home</a></li>
-            <li><a>About</a></li>
-            <li><a>FAQ</a></li>
-            <li><a>Contact</a></li>
-        </ul>
+    
+    <div id="header" class="header">
+        <div id="nav">
+            <ul>
+                <a href="#Home">Home</a>
+                <a href="#BuyProducts">Buy Products</a>
+                <a href="#SellProducts">Sell Products</a>
+            </ul>
+        </div>
+    </div>
     )
 }
 
