@@ -3,17 +3,7 @@ import "./DisplayProducts.css";
 import { useHistory } from "react-router";
 
 const DisplayProducts = (props) => {
-    // const history = useHistory();
-    console.log("from DisplayProducts: ", props);
 
-    // const handleDetails = (product) => {
-    //     history.push({
-    //         pathname: "/productDetails",
-    //         state: {
-    //             productForDisplay: product,
-    //         },
-    //     });
-    // };
     return (
         <table className="table-container">
             <thead>
@@ -24,18 +14,18 @@ const DisplayProducts = (props) => {
                     <th> Category </th>
                 </tr>
             </thead>
-            <tbody>
-                {props.products.map((product) => {
+            {props.products.map((product) => {   
                     return (
-                        <tr key={product.id}>
-                            <td>{product.name}</td>
-                            <td>{product.description}</td>
-                            <td>{product.price}</td>
-                            <td>{product.category}</td>
-                        </tr>
+                        <tbody>
+                            <tr>                        
+                                <td>{product.name}</td>
+                                <td>{product.description}</td>
+                                <td>{product.price}</td>
+                                <td>{product.category}</td>
+                            </tr>              
+                        </tbody>
                     );
-                })}
-            </tbody>
+            })}
         </table> 
     );
 };

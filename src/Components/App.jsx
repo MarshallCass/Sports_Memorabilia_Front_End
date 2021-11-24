@@ -24,6 +24,7 @@ class App extends Component {
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
+        this.getAllProducts();
         try {
             const user = jwtDecode(jwt);
             this.setState({loggedInUser: user });
@@ -64,8 +65,9 @@ class App extends Component {
     }
 
     getAllProducts = async () => {
+        console.log()  
+        let response = await axios.get('https://localhost:44394/api/Product/')
         console.log()
-        let response = await axios.get('https://localhost:44394/api/Product')
         this.setState({
             products: response.data
         });
