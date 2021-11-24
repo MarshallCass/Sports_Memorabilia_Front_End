@@ -20,6 +20,16 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        const login = {
+            username: this.state.username,
+            password: this.state.password,
+        };
+        this.props.loginUser(login);
+        this.setState({
+            username: "",
+            password: "",
+        });
+        
     }
 
     render() {
@@ -35,15 +45,15 @@ class Login extends Component {
             <div class="mb-md-5 mt-md-4 pb-5">
 
               <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-              <p class="text-white-50 mb-5">Please enter your login and password!</p>
+              <p class="text-white-50 mb-5">Please enter your username and password!</p>
 
               <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.username} />
-                <label class="form-label" for="typeEmailX">Email</label>
+                <input type="text" id="typeUsernameX" class="form-control form-control-lg" onChange={this.handleChange}   />
+                <label class="form-label" for="typeUsernameX">Username</label>
               </div>
 
               <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
+                <input type="password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange}  />
                 <label class="form-label" for="typePasswordX">Password</label>
               </div>
 
