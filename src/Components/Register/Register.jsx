@@ -52,38 +52,38 @@ class Register extends Component {
 
             <div class="mb-md-5 mt-md-4 pb-5">
 
-              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+              <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
               <p class="text-white-50 mb-5">Please enter registration information!</p>
             
 
             <div class="form-outline form-white mb-4">
-                <input type="firstName" id="typeFirstNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.firstname} />
+                <input type="text" name = "firstname" id="typeFirstNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.firstname} />
                 <label class="form-label" for="typeFirstNameX">First Name</label>
             </div>
 
             <div class="form-outline form-white mb-4">
-                <input type="lastName" id="typeLastNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.lastname} />
+                <input type="text" name = "lastname" id="typeLastNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.lastname} />
                 <label class="form-label" for="typeLastNameX">Last Name</label>
             </div>
 
             <div class="form-outline form-white mb-4">
-                <input type="phoneNumber" id="typePhoneNumberX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.phonenumber} />
-                <label class="form-label" for="typePhoneNumberX">Phone Number</label>
-            </div>
-
-            <div class="form-outline form-white mb-4">
-                <input type="email" id="typeEmailX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.email} />
-                <label class="form-label" for="typeEmailX">Email</label>
-            </div>
-
-            <div class="form-outline form-white mb-4">
-                <input type="username" id="typeUserNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.username} />
+                <input type="text" name = "username" id="typeUserNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.username} />
                 <label class="form-label" for="typeUserNameX">User Name</label>
             </div>
 
             <div class="form-outline form-white mb-4">
-                <input type="password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
+                <input type="text" name = "password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
                 <label class="form-label" for="typePasswordX">Password</label>
+            </div>
+
+            <div class="form-outline form-white mb-4">
+                <input type="text" name = "email" id="typeEmailX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.email} />
+                <label class="form-label" for="typeEmailX">Email</label>
+            </div>
+
+            <div class="form-outline form-white mb-4">
+                <input type="text" name = "phonenumber" id="typePhonenumberX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.phonenumber} />
+                <label class="form-label" for="typePhonenumberX">Phone Number</label>
             </div>
   
             <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>

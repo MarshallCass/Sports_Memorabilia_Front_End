@@ -23,10 +23,20 @@ class App extends Component {
         const jwt = localStorage.getItem('token');
         try {
             const user = jwtDecode(jwt);
-            this.setState({ user });
+            this.setState({loggedInUser: user });
 
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    registerNewUser = async (user) => {
+        try{
+            const response = await axios.post('https://localhost:44394/api/authentication' , user);
+            this.loggedInUser({'userName': user.userName, 'password': user.password})
+        }
+        catch(error) {
+            console.log(error, 'Invalid input');
         }
     }
 
@@ -38,7 +48,7 @@ class App extends Component {
             this.setState({
                 user: response.data.token
             });
-            localStorage.setItem('token', responseData.token);
+            localStorage.setItem('token', response.data.token);
             
 
         } catch (error) {
@@ -50,8 +60,10 @@ class App extends Component {
         return (
             <div>
                 <NavBar/>
-                <Register/>
-                <Login />
+                <Login loginUser={this.loginUser}/>
+                <Register registerNewUser={this.registerNewUser}/>
+                
+                
             </div>
         )
     }
