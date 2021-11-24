@@ -31,9 +31,12 @@ class App extends Component {
     }
 
     registerNewUser = async (user) => {
+        console.log("User object from Register: ", user)
         try{
-            const response = await axios.post('https://localhost:44394/api/authentication' , user);
-            this.loggedInUser({'userName': user.userName, 'password': user.password})
+            const response = await axios.post('https://localhost:44394/api/authentication', user);
+            console.log(response)
+            this.loggedInUser = ({'userName': user.userName, 'password': user.password})
+
         }
         catch(error) {
             console.log(error, 'Invalid input');
@@ -43,6 +46,7 @@ class App extends Component {
     
 
     loginUser = async (login) => {
+        console.log("User object from login:", login)
         try {
             let response = await axios.post('https://localhost:44394/api/authentication/login', login);
             this.setState({
