@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'react-router-dom';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -57,10 +58,11 @@ class Login extends Component {
                   </div>
                   <div>
                   <button class="btn btn-outline-light btn-lg px-5 fw-" type="submit">Login</button>
-                  <p className="small mb-5 pb-lg-2"><a className="text-white-50" href="#!">Forgot password?</a></p>
                   </div>
                   <div>
-                  <p class="fs-6 fw-bold mb-0">Don't have an account? <a href="#!" className="fs-6 text-white-50 fw-bold">Sign Up</a></p>
+                  <Link to ='/Register'>
+                 <button class="btn btn-outline-light btn-lg px-5 fw-">Register</button>
+                 </Link>
                   </div>
             </div>
             
@@ -71,7 +73,7 @@ class Login extends Component {
 </div>
 
 
-        )
+     )
     }
 }
 

@@ -21,7 +21,7 @@ const DisplayProducts = (props) => {
                             <tr>                        
                                 <td>{product.name}</td>
                                 <td>{product.description}</td>
-                                <td>{product.price}</td>
+                                <td>{'$'+ product.price}</td>
                                 <td>{product.category}</td>
                             </tr>              
                         </tbody>
