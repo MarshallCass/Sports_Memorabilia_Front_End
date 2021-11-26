@@ -6,6 +6,7 @@ import NavBar from './NavBar/NavBar';
 import DisplayProducts from './DisplayProducts/DisplayProducts';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
+import Footer from './Footer/Footer';
 
 
 // const tokenFromStorage = localStorage.getItem('token');
@@ -84,6 +85,7 @@ class App extends Component {
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
 
                 </Switch>
+                <Footer/>
             </div>
 
         )
