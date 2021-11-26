@@ -1,0 +1,44 @@
+/* style the container */
+.card {
+    margin-right: 1%;
+    max-width: 50%;
+    display: flex;
+    border-radius: 15px;
+    background-color: #606a74;
+    padding: .5%;
+    justify-content: center;
+    column-count: 1;
+    column-width: auto;
+  }
+   
+  /* style inputs and link buttons */
+  input,
+  .btn {
+    width: 100%;
+    padding: 5%;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    opacity: 0.85;
+    display: inline-block;
+    font-size: 17px;
+    line-height: 20px;
+    text-decoration: none; /* remove underline from anchors */
+  }
+   
+  input:hover,
+  .btn:hover {
+    opacity: 1;
+  }
+   
+   
+  /* style the submit button */
+  button[type="submit"] {
+    background-color: #567956;
+    color: white;
+    cursor: pointer;
+  }
+   
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }

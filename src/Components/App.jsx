@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
 import NavBar from './NavBar/NavBar'; 
+import CreateProduct from './CreateProduct/CreateProduct'
 import DisplayProducts from './DisplayProducts/DisplayProducts';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
@@ -78,14 +79,16 @@ class App extends Component {
         return (
             <div>
                 <NavBar/>
+                <CreateProduct />
                 <Switch>
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
-
+                
                 </Switch>
                 <Footer/>
+                
             </div>
 
         )
