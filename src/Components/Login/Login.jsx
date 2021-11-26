@@ -48,12 +48,12 @@ class Login extends Component {
 
                   <div className="form-outline form-white mb-4">
                     <input type="text" name= "username" id="typeUsernameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.username}  />
-                    <label className="form-label fs-5" for="typeUsernameX">Username</label>
+                    <label className="form-label fs-5 fw-bold" for="typeUsernameX">Username</label>
                   </div>
 
                   <div className="form-outline form-white mb-4">
                     <input type="password" name= "password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
-                    <label className="form-label fs-5" for="typePasswordX">Password</label>
+                    <label className="form-label fs-5 fw-bold" for="typePasswordX">Password</label>
                   </div>
                   <div>
                   <button class="btn btn-outline-light btn-lg px-5 fw-" type="submit">Login</button>
