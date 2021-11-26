@@ -81,7 +81,7 @@ class App extends Component {
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
-                <Route path='/DisplayProducts' render={props => <DisplayProducts {...props} getAllProducts={this.getAllProducts}/>} />               
+                <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
 
                 </Switch>
             </div>

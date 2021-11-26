@@ -5,16 +5,17 @@ import { useHistory } from "react-router";
 const DisplayProducts = (props) => {
 
     return (
-        <table className="table-container">
-            <thead>
-                <tr>
-                    <th> Name </th>
-                    <th> Description </th>
-                    <th> Price </th>
-                    <th> Category </th>
-                </tr>
-            </thead>
-            {props.products.map((product) => {   
+        <div>
+            <table className="table-container">
+                <thead>
+                    <tr>
+                        <th> Name </th>
+                        <th> Description </th>
+                        <th> Price </th>
+                        <th> Category </th>
+                    </tr>
+                </thead>
+                {props.products.map((product) => {   
                     return (
                         <tbody>
                             <tr>                        
@@ -24,9 +25,10 @@ const DisplayProducts = (props) => {
                                 <td>{product.category}</td>
                             </tr>              
                         </tbody>
-                    );
-            })}
-        </table> 
+                    )
+                })}
+            </table>
+        </div>
     );
 };
 

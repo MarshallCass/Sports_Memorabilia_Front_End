@@ -16,7 +16,7 @@ function NavBar(props) {
                 <Link to ='/Home'>
                     <li>Home</li>
                 </Link>
-                <Link to ='/DisplayProducts'>
+                <Link to ='/Products'>
                     <li>Products</li>
                 </Link>
                 <Link to ='/ShoppingCart'>
