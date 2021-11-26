@@ -43,7 +43,56 @@ class Register extends Component {
 
     render() {
         return (
-<form onSubmit={this.handleSubmit}>
+          
+<div className="container">
+   <form onSubmit={this.handleSubmit} className="form-signin">
+        <div className="row">
+            <div className="col">
+                <div>
+                  <h1 class="fs-1 fw-bold mb-5 text-uppercase">Register</h1>
+                  <p class="fs-5 text-white-50 mb-4">Please enter registration information!</p>
+                </div>
+
+                <div class="form-outline form-white mb-2">
+                  <input type="text" name = "firstname" id="typeFirstNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.firstname} />
+                  <label class="form-label fs-6" for="typeFirstNameX">First Name</label>
+                </div>
+
+                <div class="form-outline form-white mb-2">
+                  <input type="text" name = "lastname" id="typeLastNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.lastname} />
+                  <label class="form-label fs-6" for="typeLastNameX">Last Name</label>
+                </div>
+                <div class="form-outline form-white mb-2">
+                  <input type="text" name = "username" id="typeUserNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.username} />
+                  <label class="form-label fs-6" for="typeUserNameX">User Name</label>
+                </div>
+                <div class="form-outline form-white mb-2">
+                  <input type="text" name = "password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
+                  <label class="form-label fs-6" for="typePasswordX">Password</label>
+                </div>
+                <div class="form-outline form-white mb-2">
+                  <input type="text" name = "email" id="typeEmailX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.email} />
+                  <label class="form-label fs-6" for="typeEmailX">Email</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input type="text" name = "phonenumber" id="typePhonenumberX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.phonenumber} />
+                  <label class="form-label fs-6" for="typePhonenumberX">Phone Number</label>
+                </div>
+                <div>  
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                </div>
+            </div>  
+        </div>
+  </form>
+</div>
+
+        )
+    }
+}
+
+export default Register;
+
+{/* <form onSubmit={this.handleSubmit}>
 <section class="vh-100 gradient-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -96,10 +145,4 @@ class Register extends Component {
     </div>
   </div>
 </section>
-</form>
-
-        )
-    }
-}
-
-export default Register;
+</form> */}
