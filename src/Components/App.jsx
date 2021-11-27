@@ -73,11 +73,18 @@ class App extends Component {
         });
     }
 
-    addNewProduct = async () => {
-        let response = await axios.post('https://localhost:44394/api/Product/')
-        this.setState({
-            products: response.data
-        })
+    addNewProduct = async (product) => {
+        try{
+            const response = await axios.post('https://localhost:44394/api/Product', product);
+            console.log(response)
+            this.product = ({'productname': product.Name, 'productdescription': product.Description, 'productprice': product.Price, 'category': product.category})
+
+        }
+        catch(error) {
+            console.log(error, 'Invalid input');
+        }
+        
+        
     }
 
     render() {
