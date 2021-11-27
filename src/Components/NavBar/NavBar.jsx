@@ -1,10 +1,31 @@
 import React from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import { Component } from 'react';
+
+class NavBar extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            searchWord: ''
+        }
+    }
+
+    onChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.filterproducts(this.state.searchWord)
+    }
+
+    render(){
 
 
 
-function NavBar(props) {
     return (
     
    <nav>
@@ -25,8 +46,8 @@ function NavBar(props) {
                     <li>Shopping Cart</li>
                 </Link>
                 <div className= "search-bar">    
-                    <form >
-                        <input type="text" name="searchbar" placeholder="Search" id="typeSearchBarX" className="form-control form-control-sm" />
+                    <form onSubmit={this.handleSubmit}>
+                        <input type="text" name="searchWord" placeholder="Search" id="typeSearchBarX" className="form-control form-control-sm"  onChange={this.handleChange} value={this.state.searchWord}/>
                         <div>
                         <button-nav className="btn btn-outline-light btn-lg" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
@@ -40,5 +61,5 @@ function NavBar(props) {
     </nav>
     )
 }
-
-export default NavBar
+}
+export default NavBar;

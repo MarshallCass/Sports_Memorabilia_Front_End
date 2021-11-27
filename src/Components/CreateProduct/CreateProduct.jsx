@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './CreateProduct.css';
 
-class Register extends Component {
+class NewProduct extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -26,7 +26,7 @@ class Register extends Component {
             productPrice:this.state.productPrice,
             category: this.state.category,
         };
-        this.props.registerNewUser(user);
+        this.props.addNewProduct();
         this.setState({
             productName: "",
             productDescription: "",
@@ -35,9 +35,10 @@ class Register extends Component {
         });
     }
 
-    render() {
-        return (
-            <div class="card position-absolute end-0 translate-middle-" style={{width: "15%"}}>
+render() {
+    return (
+        <div class="card position-absolute end-0 translate-middle-" style={{width: "15%"}}>
+            <form onSubmit={this.handleSubmit} className="form-addProduct">
                 <ul class="list-group list-group-flush">
                     <input type="text" name = "productname" id="typeProductNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productName} />
                     <label class="form-label fs-6 fw-bold" for="typeProductNameX">Product Name</label>
@@ -47,15 +48,16 @@ class Register extends Component {
                     <label class="form-label fs-6 fw-bold" for="typeProductPriceX">Product Price</label>
                     <input type="text" name = "category" id="typeProductCategoryX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productCategory} />
                     <label class="form-label fs-6 fw-bold" for="typeProductCategoryX">Category</label>
-                </ul>
+                
                 <div class="card-footer">
                     <button class="btn btn-outline-light btn-lg" type="submit">Add Product</button>
                 </div>
+                </ul>
+                </form>
             </div>
 
-
-        )
-    }
+    )
+}
 }
 
-export default Register;
+export default NewProduct;
