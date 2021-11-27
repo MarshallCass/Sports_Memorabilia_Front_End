@@ -67,12 +67,17 @@ class App extends Component {
     }
 
     getAllProducts = async () => {
-        console.log()  
         let response = await axios.get('https://localhost:44394/api/Product/')
-        console.log()
         this.setState({
             products: response.data
         });
+    }
+
+    addNewProduct = async () => {
+        let response = await axios.post('https://localhost:44394/api/Product/')
+        this.setState({
+            products: response.data
+        })
     }
 
     render() {

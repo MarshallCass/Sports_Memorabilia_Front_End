@@ -21,16 +21,16 @@ class Register extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const user = {
-            productname: this.state.productname,
-            productdescription: this.state.productdescription,
-            productprice:this.state.productprice,
+            productName: this.state.productName,
+            productDescription: this.state.productDescription,
+            productPrice:this.state.productPrice,
             category: this.state.category,
         };
         this.props.registerNewUser(user);
         this.setState({
-            productname: "",
-            productdescription: "",
-            productprice: "",
+            productName: "",
+            productDescription: "",
+            productPrice: "",
             category: "",
         });
     }
@@ -39,13 +39,13 @@ class Register extends Component {
         return (
             <div class="card position-absolute end-0 translate-middle-" style={{width: "15%"}}>
                 <ul class="list-group list-group-flush">
-                    <input type="text" name = "productname" id="typeProductNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productname} />
+                    <input type="text" name = "productname" id="typeProductNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productName} />
                     <label class="form-label fs-6 fw-bold" for="typeProductNameX">Product Name</label>
-                    <input type="text" name = "productdescription" id="typeProductDescriptionX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productdescription} />
+                    <input type="text" name = "productdescription" id="typeProductDescriptionX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productDescription} />
                     <label class="form-label fs-6 fw-bold" for="typeProductDescriptionX">Product Description</label>
-                    <input type="text" name = "productprice" id="typeProductPriceX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productprice} />
+                    <input type="text" name = "productprice" id="typeProductPriceX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productPrice} />
                     <label class="form-label fs-6 fw-bold" for="typeProductPriceX">Product Price</label>
-                    <input type="text" name = "category" id="typeProductCategoryX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productcategory} />
+                    <input type="text" name = "category" id="typeProductCategoryX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productCategory} />
                     <label class="form-label fs-6 fw-bold" for="typeProductCategoryX">Category</label>
                 </ul>
                 <div class="card-footer">
