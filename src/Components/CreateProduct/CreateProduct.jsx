@@ -20,13 +20,13 @@ class CreateProduct extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const product = {
+        const products = {
             productname: this.state.productname,
             productdescription: this.state.productdescription,
             productprice:this.state.productprice,
             category: this.state.category,
         };
-        this.props.addNewProduct(product);
+        this.props.addNewProduct(products);
         this.setState({
             productname: "",
             productdescription: "",
@@ -53,8 +53,8 @@ render() {
                     <button class="btn btn-outline-light btn-lg" type="submit">Add Product</button>
                 </div>
                 </ul>
-                </form>
-            </div>
+            </form>
+        </div>
 
     )
 }

@@ -45,7 +45,7 @@ class Register extends Component {
         return (
           
 <div className="container">
-   <form onSubmit={this.handleSubmit} className="form-signin">
+   <form onSubmit={this.handleSubmit} className="form-signup">
         <div className="row">
             <div className="col">
                 <div>
@@ -67,7 +67,7 @@ class Register extends Component {
                   <label class="form-label fs-6 fw-bold" for="typeUserNameX">User Name</label>
                 </div>
                 <div class="form-outline form-white mb-2">
-                  <input type="text" name = "password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
+                  <input type="text" name = "password" minlength="8" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
                   <label class="form-label fs-6 fw-bold" for="typePasswordX">Password</label>
                 </div>
                 <div class="form-outline form-white mb-2">

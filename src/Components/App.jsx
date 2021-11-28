@@ -73,11 +73,11 @@ class App extends Component {
         });
     }
 
-    addNewProduct = async (product) => {
+    addNewProduct = async (products) => {
         try{
-            const response = await axios.post('https://localhost:44394/api/Product', product);
+            const response = await axios.post('https://localhost:44394/api/Product', products);
             console.log(response)
-            this.product = ({'productname': product.Name, 'productdescription': product.Description, 'productprice': product.Price, 'category': product.category})
+            this.products = ({'productname': products.Name, 'productdescription': products.Description, 'productprice': products.Price, 'category': products.category})
 
         }
         catch(error) {
