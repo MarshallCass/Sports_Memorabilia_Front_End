@@ -3,8 +3,10 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
 import NavBar from './NavBar/NavBar'; 
+import Home from './HomeScreen/Home';
 import CreateProduct from './CreateProduct/CreateProduct'
 import DisplayProducts from './DisplayProducts/DisplayProducts';
+import ShoppingCart from './ShoppingCart/ShoppingCart'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Footer from './Footer/Footer';
@@ -98,11 +100,6 @@ class App extends Component {
         });
     }
 
-    deleteCartProduct = async () => {
-        let response = await axios.delete('https://localhost:44394/api/ShoppingCart/${userid}/${productid}');
-        this.getCartProducts()
-    }
-
     render() {
         return (
             <div>
@@ -111,10 +108,11 @@ class App extends Component {
                 <Switch>
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
-                <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
+                <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} /> 
+                <Route path='/Home' />              
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
-                <Route path='/ShoppingCart' render={props => <shoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
+                <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
                 </Switch>
                 <Footer/>
                 
