@@ -5,9 +5,9 @@ class CreateProduct extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            productname:"",
-            productdescription:"",
-            productprice:"",
+            name:"",
+            description:"",
+            price:"",
             category:"",
          };
     }
@@ -20,17 +20,17 @@ class CreateProduct extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        const products = {
-            productname: this.state.productname,
-            productdescription: this.state.productdescription,
-            productprice:this.state.productprice,
+        const product = {
+            name: this.state.name,
+            description: this.state.description,
+            price:this.state.price,
             category: this.state.category,
         };
-        this.props.addNewProduct(products);
+        this.props.addNewProduct(product);
         this.setState({
-            productname: "",
-            productdescription: "",
-            productprice: "",
+            name: "",
+            description: "",
+            price: 0,
             category: "",
         });
     }
@@ -38,13 +38,14 @@ class CreateProduct extends Component {
 render() {
     return (
         <div class="card position-absolute end-0 translate-middle-" style={{width: "15%"}}>
+        {console.log("CreateProduct props: ", this.props)}
             <form onSubmit={this.handleSubmit} className="form-addProduct">
                 <ul class="list-group list-group-flush">
-                    <input type="text" name = "productname" id="typeProductNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productname} />
+                    <input type="text" name = "name" id="typeProductNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.name} />
                     <label class="form-label fs-6 fw-bold" for="typeProductNameX">Product Name</label>
-                    <input type="text" name = "productdescription" id="typeProductDescriptionX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productdescription} />
+                    <input type="text" name = "description" id="typeProductDescriptionX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.description} />
                     <label class="form-label fs-6 fw-bold" for="typeProductDescriptionX">Product Description</label>
-                    <input type="text" name = "productprice" id="typeProductPriceX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.productprice} />
+                    <input type="text" name = "price" id="typeProductPriceX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.price} />
                     <label class="form-label fs-6 fw-bold" for="typeProductPriceX">Product Price</label>
                     <input type="text" name = "category" id="typeCategoryX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.category} />
                     <label class="form-label fs-6 fw-bold" for="typeCategoryX">Category</label>

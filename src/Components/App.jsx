@@ -26,6 +26,7 @@ class App extends Component {
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
+        
         this.getAllProducts();
         try {
             const user = jwtDecode(jwt);
@@ -34,6 +35,7 @@ class App extends Component {
         } catch (error) {
             console.log(error);
         }
+        this.addNewProduct();
     }
 
     registerNewUser = async (user) => {
@@ -73,12 +75,14 @@ class App extends Component {
         });
     }
 
-    addNewProduct = async (products) => {
+    addNewProduct = async (product) => {
         try{
-            const response = await axios.post('https://localhost:44394/api/Product', products);
+            const response = await axios.post('https://localhost:44394/api/Product', product);
             console.log(response)
-            this.products = ({'productname': products.Name, 'productdescription': products.Description, 'productprice': products.Price, 'category': products.category})
-
+            this.product = ({'name': product.name, 'description': product.description, 'price': product.price, 'category': product.category})
+            this.setState({
+                products: response.data
+            });
         }
         catch(error) {
             console.log(error, 'Invalid input');
@@ -91,13 +95,13 @@ class App extends Component {
         return (
             <div>
                 <NavBar/>
-                <CreateProduct />
+                <CreateProduct  test="test" addNewProduct={this.addNewProduct} />
                 <Switch>
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
-                
+                <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
                 </Switch>
                 <Footer/>
                 
