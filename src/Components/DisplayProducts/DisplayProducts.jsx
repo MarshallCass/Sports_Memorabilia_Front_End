@@ -23,6 +23,7 @@ const DisplayProducts = (props) => {
                                 <td>{product.description}</td>
                                 <td>$ {product.price}.00</td>
                                 <td>{product.category}</td>
+                                <td><button class="btn btn-outline-light btn-lg" type="submit">Add to Cart</button></td>
                             </tr>              
                         </tbody>
                     )

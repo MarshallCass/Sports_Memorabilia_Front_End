@@ -91,6 +91,13 @@ class App extends Component {
         
     }
 
+    getCartProducts = async () => {
+        let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}');
+        this.setState({
+            shoppingCart: response.data
+        });
+    }
+
     render() {
         return (
             <div>
@@ -102,6 +109,7 @@ class App extends Component {
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
+                <Route path='/ShoppingCart' render={props => <shoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
                 </Switch>
                 <Footer/>
                 
