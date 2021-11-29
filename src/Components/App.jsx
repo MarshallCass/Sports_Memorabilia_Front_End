@@ -79,7 +79,7 @@ class App extends Component {
         try{
             const response = await axios.post('https://localhost:44394/api/Product', product);
             console.log(response)
-            this.product = ({'name': product.name, 'description': product.description, 'price': product.price, 'category': product.category})
+            this.product = ({'Name': product.Name, 'Description': product.Description, 'Price': product.Price, 'Category': product.Category})
             this.setState({
                 products: response.data
             });
