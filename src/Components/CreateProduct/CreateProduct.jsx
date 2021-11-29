@@ -38,8 +38,7 @@ class CreateProduct extends Component {
 
 render() {
     return (
-        <div class="card position-absolute end-0 translate-middle-" style={{width: "15%"}}>
-        {console.log("CreateProduct props: ", this.props)}
+<div className="container">
             <form onSubmit={this.handleSubmit} className="form-addProduct">
                 <ul class="list-group list-group-flush">
                     <input type="text" name = "name" id="typeNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.name} />
@@ -55,8 +54,8 @@ render() {
                     <button class="btn btn-outline-light btn-lg" type="submit">Add Product</button>
                 </div>
                 </ul>
-            </form>
-        </div>
+    </form>
+</div>
 
     )
 }
