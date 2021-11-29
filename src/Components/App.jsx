@@ -98,6 +98,11 @@ class App extends Component {
         });
     }
 
+    deleteCartProduct = async () => {
+        let response = await axios.delete('https://localhost:44394/api/ShoppingCart/${userid}/${productid}');
+        this.getCartProducts()
+    }
+
     render() {
         return (
             <div>
