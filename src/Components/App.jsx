@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Login from './Login/Login';
 import Register from './Register/Register';
 import NavBar from './NavBar/NavBar'; 
+import CreateProduct from './CreateProduct/CreateProduct'
 import DisplayProducts from './DisplayProducts/DisplayProducts';
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
@@ -66,26 +67,40 @@ class App extends Component {
     }
 
     getAllProducts = async () => {
-        console.log()  
         let response = await axios.get('https://localhost:44394/api/Product/')
-        console.log()
         this.setState({
             products: response.data
         });
+    }
+
+    addNewProduct = async (products) => {
+        try{
+            const response = await axios.post('https://localhost:44394/api/Product', products);
+            console.log(response)
+            this.products = ({'productname': products.Name, 'productdescription': products.Description, 'productprice': products.Price, 'category': products.category})
+
+        }
+        catch(error) {
+            console.log(error, 'Invalid input');
+        }
+        
+        
     }
 
     render() {
         return (
             <div>
                 <NavBar/>
+                <CreateProduct />
                 <Switch>
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} />               
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
-
+                
                 </Switch>
                 <Footer/>
+                
             </div>
 
         )

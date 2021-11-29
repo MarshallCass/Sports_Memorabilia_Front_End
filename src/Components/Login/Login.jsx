@@ -57,7 +57,7 @@ class Login extends Component {
                     <label className="form-label fs-5 fw-bold" for="typePasswordX">Password</label>
                   </div>
                   <div>
-                  <button class="btn btn-outline-light btn-lg px-5 fw-" type="submit">Login</button>
+                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
                   </div>
                   <div>
                   <Link to ='/Register'>
