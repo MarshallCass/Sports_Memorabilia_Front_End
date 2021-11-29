@@ -11,18 +11,19 @@ const ShoppingCart = (props) => {
                     <tr>
                         <th> Name </th>
                         <th> Description </th>
-                        <th> Price </th>
-                        <th> Category </th>
+                        <th> Quantity </th>
+                        
                     </tr>
                 </thead>
                 {props.cartProducts.map((cart) => {   
                     return (
                         <tbody>
                             <tr>                        
-                                <td>{cart.name}</td>
-                                <td>{cart.description}</td>
-                                <td>$ {cart.price}.00</td>
-                                <td>{cart.category}</td>
+                                <td>{cart.UserId}</td>
+                                <td>{cart.ProductId}</td>
+                                <td>{cart.quantity}</td>
+                                <td><button type="button" onClick={() => props.deleteCartProduct(ProductId)}>Remove</button></td>
+
                             </tr>              
                         </tbody>
                     )
