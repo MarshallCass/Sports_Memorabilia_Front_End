@@ -45,6 +45,9 @@ class NavBar extends Component {
                 <Link to ='/ShoppingCart'>
                     <li>Shopping Cart</li>
                 </Link>
+                <Link to ='/CreateProduct'>
+                    <li>Add New Product</li>
+                </Link>
                 <div className= "search-bar">    
                     <form onSubmit={this.handleSubmit}>
                         <input type="text" name="searchWord" placeholder="Search" id="typeSearchBarX" className="form-control form-control-sm"  onChange={this.handleChange} value={this.state.searchWord}/>

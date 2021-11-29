@@ -102,7 +102,7 @@ class App extends Component {
         return (
             <div>
                 <NavBar/>
-                <CreateProduct  test="test" addNewProduct={this.addNewProduct} />
+                {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <Switch>
 
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
