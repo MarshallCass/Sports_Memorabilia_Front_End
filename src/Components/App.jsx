@@ -64,10 +64,19 @@ class App extends Component {
             });
             localStorage.setItem('token', response.data.token);
             
+            
 
         } catch (error) {
             alert('Invalid username or password')
         }
+    }
+
+    logoutUser = () => {
+        localStorage.removeItem('token');
+        this.setState({
+            loggedInUser: false,
+        })
+        window.location('/')
     }
 
     getAllProducts = async () => {
@@ -110,14 +119,14 @@ class App extends Component {
         const user = this.state.user;
         return (
             <div>
-                <NavBar/>
+                <NavBar logout={this.logoutUser}/>
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <Switch>
-                <Route path='/profile' render={props => {
+                <Route path='/Profile' render={props => {
                     if (!user) {
                         return <Redirect to='/Login' />;
                     } else {
-                        return(<DisplayProducts {...props} products={this.state.products}/>) 
+                        return(<Route path= '/' />) 
                         }
                     }}
                 />
