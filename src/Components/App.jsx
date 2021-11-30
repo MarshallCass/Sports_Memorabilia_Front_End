@@ -22,9 +22,10 @@ class App extends Component {
             loggedInUser: null,
             products: [],
             shoppingCart: [],
+            jwt: "",
         };
     }
-
+    
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
@@ -37,6 +38,7 @@ class App extends Component {
         } catch (error) {
             console.log(error);
         }
+        this.getCartProducts();
     }
 
     registerNewUser = async (user) => {
@@ -61,12 +63,25 @@ class App extends Component {
             this.setState({
                 user: response.data.token
             });
+            this.setState({
+                jwt: response.data.token
+            });
             localStorage.setItem('token', response.data.token);
             
+            window.location('/')
 
         } catch (error) {
             alert('Invalid username or password')
         }
+  
+    }
+
+    logoutUser = () => {
+        localStorage.removeItem('token');
+        this.setState({
+            loggedInUser: false,
+        })
+        window.location('/')
     }
 
     getAllProducts = async () => {
@@ -99,7 +114,7 @@ class App extends Component {
     }
 
     getCartProducts = async () => {
-        let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}');
+        let response = await axios.get('https://localhost:44394/api/ShoppingCart/', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
         this.setState({
             shoppingCart: response.data
         });
@@ -125,9 +140,9 @@ const user = this.state.loggedInUser
                 <Switch>
                 <Route path='/' render={(props) => {
                     if (!user) {
-                        return <Redirect to='/Login' />;
+                        return <Redirect to= '/Login' />
                     } else {
-                        return(<Redirect to='/Home' {...props} user={user}/>) 
+                        return (<Home {...props} user={user}/>)
                         }
                     }}
                 />               
