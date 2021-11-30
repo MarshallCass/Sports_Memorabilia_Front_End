@@ -92,6 +92,7 @@ class App extends Component {
             this.setState({
                 products: response.data
             });
+            window.location = ('/Products')
         }
         catch(error) {
             console.log(error, 'Invalid input');
@@ -122,7 +123,7 @@ const user = this.state.loggedInUser
                 
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <div>
-                <NavBar user={user}/>
+                <NavBar user={user} />
                 </div>
                 <button onClick={this.getCartProducts}> Update Shopping Cart</button>
                 <Switch>
