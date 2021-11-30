@@ -95,11 +95,9 @@ class App extends Component {
         catch(error) {
             console.log(error, 'Invalid input');
         }
-        
-        
     }
 
-    searchProducts = (results) => {
+     searchProducts = (results) => {
         this.setState({
             products: results
         })
