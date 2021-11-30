@@ -29,7 +29,6 @@ class App extends Component {
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
-        this.getAllProducts();
 
         try {
             const user = jwtDecode(jwt);
@@ -38,7 +37,7 @@ class App extends Component {
         } catch (error) {
             console.log(error);
         }
-        this.getCartProducts();
+
     }
 
     registerNewUser = async (user) => {
@@ -107,9 +106,10 @@ class App extends Component {
 
     getCartProducts = async () => {
         let response = await axios.get('https://localhost:44394/api/ShoppingCart/', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
-        this.setState({
-            shoppingCart: response.data
-        });
+        // this.setState({
+        //     shoppingCart: response.data
+        // });
+        return response.data
     }
  
 
@@ -139,7 +139,7 @@ const user = this.state.loggedInUser
                 <Route path='/Home' />              
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
-                <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
+                <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} getCartProducts={this.getCartProducts} />} />
 
                 </Switch>
                 <Footer/>
