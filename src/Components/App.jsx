@@ -21,10 +21,11 @@ class App extends Component {
         this.state = {
             loggedInUser: null,
             products: [],
-            shoppingCart: []
+            shoppingCart: [],
+            jwt: "",
         };
     }
-
+    
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
@@ -37,7 +38,7 @@ class App extends Component {
         } catch (error) {
             console.log(error);
         }
-        this.addNewProduct();
+        this.getCartProducts();
     }
 
     registerNewUser = async (user) => {
@@ -62,12 +63,16 @@ class App extends Component {
             this.setState({
                 user: response.data.token
             });
+            this.setState({
+                jwt: response.data.token
+            });
             localStorage.setItem('token', response.data.token);
-            
+
 
         } catch (error) {
             alert('Invalid username or password')
         }
+  
     }
 
     getAllProducts = async () => {
@@ -100,7 +105,8 @@ class App extends Component {
     }
 
     getCartProducts = async () => {
-        let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}');
+        const jwt = localStorage.getItem('token');
+        let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}', { headers: {Authorization: 'Bearer ' + jwt}});
         this.setState({
             shoppingCart: response.data
         });
