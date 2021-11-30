@@ -30,6 +30,7 @@ class App extends Component {
         
         const jwt = localStorage.getItem('token');
         this.getAllProducts()
+        this.getCartProducts()
         try {
             const user = jwtDecode(jwt);
             this.setState({loggedInUser: user });
@@ -104,11 +105,13 @@ class App extends Component {
     }
 
     getCartProducts = async () => {
-        let response = await axios.get('https://localhost:44394/api/ShoppingCart/', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
-        // this.setState({
-        //     shoppingCart: response.data
-        // });
-        return response.data
+        console.log( localStorage.getItem('token'))
+        let response = await axios.get('https://localhost:44394/api/ShoppingCart/', { headers: {Authorization: 'Bearer ' + localStorage.getItem('token')}});
+        console.log(response.data)
+        this.setState({
+            shoppingCart: response.data
+        });
+        // return response.data
     }
  
 
@@ -122,7 +125,7 @@ const user = this.state.loggedInUser
                 <NavBar user={user}/>
                 <SearchBar />
                 </div>
-
+                <button onClick={this.getCartProducts}> Update Shopping Cart</button>
                 <Switch>
                 <Route path='/' exact={true} render={(props) => {
                     if (!user) {
@@ -139,7 +142,7 @@ const user = this.state.loggedInUser
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
                 <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} shoppingCart={this.state.shoppingCart} />} />
-
+               
                 </Switch>
                 <Footer/>
                 
