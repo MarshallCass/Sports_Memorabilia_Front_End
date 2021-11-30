@@ -67,12 +67,8 @@ class App extends Component {
                 jwt: response.data.token
             });
             localStorage.setItem('token', response.data.token);
-<<<<<<< HEAD
-
-=======
             
             
->>>>>>> 04be7f368cdb8ecc506d8cfc5d51e085b28b868e
 
         } catch (error) {
             alert('Invalid username or password')
