@@ -12,18 +12,21 @@ const NavBar = ({user}) => {
 
     return (
 <nav>
-    
+
        {user && <h4> Welcome {user.username} </h4>}
             <ul>
+            <React.Fragment>
+
                         <Link to ='/Home'> <li>Home</li> </Link>
                         <Link to ='/Products'> <li>Products</li> </Link>
                         <Link to ='/ShoppingCart'> <li>Shopping Cart</li> </Link>
                         <Link to ='/CreateProduct'> <li>Add New Product</li> </Link>
+                </React.Fragment>
                 {!user &&
                     <React.Fragment>
                         <Link to ='/Login'> <li>Login</li> </Link>
                         <Link to ='/Register'> <li>Register</li> </Link>                   
-                </React.Fragment>
+                    </React.Fragment>
                 }
                 {user && 
                     <React.Fragment>

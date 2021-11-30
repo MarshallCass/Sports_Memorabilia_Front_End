@@ -6,7 +6,7 @@ const ShoppingCart = (props) => {
 
     const {cartProducts, setCartProducts } = useState([])
 
-    useEffect(() => {
+    useEffect((props) => {
         let results = props.getCartProducts()
         setCartProducts(results)
     },[])
@@ -34,7 +34,6 @@ const ShoppingCart = (props) => {
                     return (
                         <tbody>
                             <tr key={index}>                        
-                                {/* <td>{cart.UserId}</td> */}
                                 <td>{cart.ProductId}</td>
                                 <td>{cart.quantity}</td>
                                 <td><button type="button" onClick={() => handleDelete(cart.ProductId)}>Remove</button></td>

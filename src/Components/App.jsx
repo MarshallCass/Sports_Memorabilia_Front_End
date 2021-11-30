@@ -29,7 +29,7 @@ class App extends Component {
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
-
+        this.getAllProducts()
         try {
             const user = jwtDecode(jwt);
             this.setState({loggedInUser: user });
@@ -46,6 +46,7 @@ class App extends Component {
             const response = await axios.post('https://localhost:44394/api/authentication', user);
             console.log(response)
             this.loggedInUser = ({'userName': user.userName, 'password': user.password})
+            window.location = ('/Login')
 
         }
         catch(error) {
@@ -67,7 +68,7 @@ class App extends Component {
             });
             localStorage.setItem('token', response.data.token);
             
-            window.location = ('/')
+            window.location = ('/Home')
 
         } catch (error) {
             alert('Invalid username or password')
@@ -129,7 +130,7 @@ const user = this.state.loggedInUser
                     if (!user) {
                         return <Redirect to= '/Login' />
                     } else {
-                        return (<Home {...props} user={user}/>)
+                        return <Redirect to= '/Home' />
                         }
                     }}
                 />               
@@ -139,7 +140,7 @@ const user = this.state.loggedInUser
                 <Route path='/Home' />              
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
-                <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} getCartProducts={this.getCartProducts} />} />
+                {/* <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.getCartProducts} />} /> */}
 
                 </Switch>
                 <Footer/>

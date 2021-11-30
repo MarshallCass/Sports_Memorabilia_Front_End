@@ -1,6 +1,5 @@
 import React from "react";
 import "./DisplayProducts.css";
-import { useHistory } from "react-router";
 
 const DisplayProducts = (props) => {
 
