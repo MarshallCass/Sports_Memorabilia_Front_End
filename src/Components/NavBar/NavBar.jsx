@@ -22,7 +22,7 @@ const NavBar = ({user}) => {
                 {user && 
                     <React.Fragment>
                        
-                        <Link to="logout"> <li> Logout </></Link>
+                        <Link to='/logout'> <li> Logout </li></Link>
                     
                     </React.Fragment>
                     }

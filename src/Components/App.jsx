@@ -7,6 +7,7 @@ import Home from './HomeScreen/Home';
 import CreateProduct from './CreateProduct/CreateProduct'
 import DisplayProducts from './DisplayProducts/DisplayProducts';
 import ShoppingCart from './ShoppingCart/ShoppingCart'
+import Logout from './Logout/Logout'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Footer from './Footer/Footer';
@@ -119,13 +120,7 @@ class App extends Component {
             shoppingCart: response.data
         });
     }
-    logoutUser = () => {
-        localStorage.removeItem('token');
-        this.setState({
-            loggedInUser: false,
-        })
-        window.location('/')
-    }
+
 
     render() {
 const user = this.state.loggedInUser
@@ -134,11 +129,11 @@ const user = this.state.loggedInUser
                 
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <div>
-                <NavBar user={user}/>
+                <NavBar user={user} logoutUser={this.logoutUser}/>
                 </div>
 
                 <Switch>
-                <Route path='/' render={(props) => {
+                <Route path='/Profile' render={(props) => {
                     if (!user) {
                         return <Redirect to= '/Login' />
                     } else {
@@ -153,7 +148,7 @@ const user = this.state.loggedInUser
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
                 <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
-                {/* <Route path='/logout' component={Logout}/> */}
+                <Route path='/Logout' component={Logout}/>
                 </Switch>
                 <Footer/>
                 
