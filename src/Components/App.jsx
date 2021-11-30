@@ -68,7 +68,7 @@ class App extends Component {
             });
             localStorage.setItem('token', response.data.token);
             
-            
+            window.location('/')
 
         } catch (error) {
             alert('Invalid username or password')
@@ -114,24 +114,24 @@ class App extends Component {
     }
 
     getCartProducts = async () => {
-        let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
+        let response = await axios.get('https://localhost:44394/api/ShoppingCart/', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
         this.setState({
             shoppingCart: response.data
         });
     }
 
     render() {
-        const user = this.state.user;
+        const user = this.state.loggedInUser
         return (
             <div>
-                <NavBar logout={this.logoutUser}/>
+                <NavBar user={user} />
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <Switch>
-                <Route path='/Profile' render={props => {
+                <Route path='/' render={(props) => {
                     if (!user) {
-                        return <Redirect to='/Login' />;
+                        return <Redirect to= '/Login' />
                     } else {
-                        return(<Route path= '/' />) 
+                        return (<Home {...props} user={user}/>)
                         }
                     }}
                 />
