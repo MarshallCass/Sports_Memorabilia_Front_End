@@ -120,7 +120,6 @@ const user = this.state.loggedInUser
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <div>
                 <NavBar user={user}/>
-                <SearchBar />
                 </div>
 
                 <Switch>
