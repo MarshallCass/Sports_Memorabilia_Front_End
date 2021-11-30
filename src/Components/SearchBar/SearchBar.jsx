@@ -1,6 +1,5 @@
 import React from 'react';
-import './NavBar.css';
-import { Link } from 'react-router-dom';
+import './SearchBar.css';
 import { Component } from 'react';
 
 class SearchBar extends Component {
@@ -43,3 +42,5 @@ class SearchBar extends Component {
         )
     }
 }
+
+export default SearchBar

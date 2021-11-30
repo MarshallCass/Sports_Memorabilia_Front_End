@@ -11,6 +11,7 @@ import Logout from './Logout/Logout'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Footer from './Footer/Footer';
+import SearchBar from './SearchBar/SearchBar';
 
 
 // const tokenFromStorage = localStorage.getItem('token');
@@ -129,7 +130,8 @@ const user = this.state.loggedInUser
                 
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <div>
-                <NavBar user={user} logoutUser={this.logoutUser}/>
+                <NavBar user={user} />
+                <SearchBar />
                 </div>
 
                 <Switch>

@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const NavBar = ({user}) => {
 
     return (
-    <div>
+<nav>
+    
        {user && <h4> Welcome {user.username} </h4>}
             <ul>
                         <Link to ='/Home'> <li>Home</li> </Link>
@@ -22,12 +23,13 @@ const NavBar = ({user}) => {
                 {user && 
                     <React.Fragment>
                        
-                        <Link to='/logout'> <li> Logout </li></Link>
+                        <Link to='/Logout'> <li> Logout </li></Link>
                     
                     </React.Fragment>
-                    }
+                }
             </ul>
-    </div>
+   
+</nav>
     );
 }
 
