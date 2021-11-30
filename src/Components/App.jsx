@@ -114,7 +114,6 @@ class App extends Component {
     }
 
     getCartProducts = async () => {
-        // const jwt = localStorage.getItem('token');
         let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}', { headers: {Authorization: 'Bearer ' + this.state.jwt}});
         this.setState({
             shoppingCart: response.data
