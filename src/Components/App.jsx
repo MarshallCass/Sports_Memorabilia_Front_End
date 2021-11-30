@@ -93,6 +93,12 @@ class App extends Component {
         
     }
 
+    searchProducts = (results) => {
+        this.setState({
+            products: results
+        })
+    }
+
     getCartProducts = async () => {
         let response = await axios.get('https://localhost:44394/api/ShoppingCart/${userid}');
         this.setState({
@@ -101,12 +107,20 @@ class App extends Component {
     }
 
     render() {
+        const user = this.state.user;
         return (
             <div>
                 <NavBar/>
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <Switch>
-
+                <Route path='/profile' render={props => {
+                    if (!user) {
+                        return <Redirect to='/Login' />;
+                    } else {
+                        return(<DisplayProducts {...props} products={this.state.products}/>) 
+                        }
+                    }}
+                />
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} /> 
                 <Route path='/Home' />              
