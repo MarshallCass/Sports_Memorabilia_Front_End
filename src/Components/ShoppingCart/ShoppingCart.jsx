@@ -1,10 +1,17 @@
-import React from "react";
+import React, {Fragment, useState, useEffect} from "react";
 import "./ShoppingCart.css";
-import { useHistory } from "react-router";
+// import { useHistory } from "react-router";
 
 const ShoppingCart = (props) => {
-    
-    const { cartProducts } = props;
+
+    const {cartProducts, setCartProducts } = useState([])
+
+    useEffect(() => {
+        let results = props.getCartProducts()
+        setCartProducts(results)
+    },[])
+
+    // const { cartProducts } = props;
 
     const handleDelete = (prodId) => {
         // handle Delete here
@@ -13,7 +20,7 @@ const ShoppingCart = (props) => {
     }
 
     return (
-        <div>
+        <Fragment>
             <table className="table-container">
                 <thead>
                     <tr>
@@ -23,10 +30,10 @@ const ShoppingCart = (props) => {
                         
                     </tr>
                 </thead>
-                {cartProducts.map((cart) => {   
+                {cartProducts.map((cart, index) => {   
                     return (
                         <tbody>
-                            <tr>                        
+                            <tr key={index}>                        
                                 {/* <td>{cart.UserId}</td> */}
                                 <td>{cart.ProductId}</td>
                                 <td>{cart.quantity}</td>
@@ -35,9 +42,9 @@ const ShoppingCart = (props) => {
                             </tr>              
                         </tbody>
                     )
-                })} */}
+                })}
             </table>
-        </div>
+        </Fragment>
     );
 };
 

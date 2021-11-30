@@ -5,6 +5,11 @@ import { Link } from 'react-router-dom';
 
 const NavBar = ({user}) => {
 
+    const logoutUser = () => {
+        localStorage.removeItem('token');
+        window.location = ('/')
+    }
+
     return (
 <nav>
     
@@ -23,7 +28,7 @@ const NavBar = ({user}) => {
                 {user && 
                     <React.Fragment>
                        
-                        <Link to='/Logout'> <li> Logout </li></Link>
+                        <Link onClick={() => logoutUser()}> <li> Logout </li></Link>
                     
                     </React.Fragment>
                 }
