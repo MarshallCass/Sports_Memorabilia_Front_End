@@ -4,12 +4,12 @@ import "./ShoppingCart.css";
 
 const ShoppingCart = (props) => {
 
-    const {cartProducts, setCartProducts } = useState([])
+    // const {cartProducts, setCartProducts } = useState([])
 
-    useEffect((props) => {
-        let results = props.getCartProducts()
-        setCartProducts(results)
-    },[])
+    // useEffect((props) => {
+    //     let results = props.getCartProducts()
+    //     setCartProducts(results)
+    // },[])
 
     // const { cartProducts } = props;
 
@@ -30,7 +30,7 @@ const ShoppingCart = (props) => {
                         
                     </tr>
                 </thead>
-                {cartProducts.map((cart, index) => {   
+                {props.shoppingCart.map((cart, index) => {   
                     return (
                         <tbody>
                             <tr key={index}>                        

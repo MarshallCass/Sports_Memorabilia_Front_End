@@ -6,18 +6,18 @@ const DisplayProducts = (props) => {
 
 
 
-    const handleChange = () => {
-        // handle add to cart
-        addProductCart = async () => {
-            const response = await axios.post('https://localhost:44394/api/ShoppingCart/');
-            this.setState({
-                shoppingCart: response.data
-        })  
-}
+     const handleChange = () => {
+//         // handle add to cart
+//         addProductCart = async () => {
+//             const response = await axios.post('https://localhost:44394/api/ShoppingCart/');
+//             this.setState({
+//                 shoppingCart: response.data
+//         })  
+// }
 
         alert ("Add product to Cart: ")
         // add callback function as a refactor
-    }
+}
 
     return (
         <div>
@@ -38,7 +38,7 @@ const DisplayProducts = (props) => {
                                 <td>{product.description}</td>
                                 <td>$ {product.price}.00</td>
                                 <td>{product.category}</td>
-                                <td><button class="btn btn-outline-light btn-lg" type="button" onClick={() => handleChange(addProductCart)}>Add to Cart</button></td>
+                                <td><button class="btn btn-outline-light btn-lg" type="button" onClick={() => handleChange()}>Add to Cart</button></td>
 
                             </tr>              
                         </tbody>

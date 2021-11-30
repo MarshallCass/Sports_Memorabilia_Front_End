@@ -138,7 +138,7 @@ const user = this.state.loggedInUser
                 <Route path='/Home' />              
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
-                {/* <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.getCartProducts} />} /> */}
+                <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} shoppingCart={this.state.shoppingCart} />} />
 
                 </Switch>
                 <Footer/>
