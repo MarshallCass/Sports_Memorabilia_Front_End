@@ -123,7 +123,6 @@ const user = this.state.loggedInUser
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <div>
                 <NavBar user={user}/>
-                <SearchBar />
                 </div>
                 <button onClick={this.getCartProducts}> Update Shopping Cart</button>
                 <Switch>

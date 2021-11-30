@@ -50,3 +50,22 @@
   form * {
     font-size: 15px;
   }
+
+/* style the submit button */
+button[type="button"] {
+  border-radius: 5px;
+  background-color: #567956;
+  color: black;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}
+
+button[type="button"]:hover {
+  background-color: #45a049;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  height: auto;
+}

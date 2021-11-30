@@ -1,6 +1,7 @@
 import React from 'react';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar';
 
 
 const NavBar = ({user}) => {
@@ -12,31 +13,27 @@ const NavBar = ({user}) => {
 
     return (
 <nav>
-
-       {user && <h4> Welcome {user.username} </h4>}
+            
+            {user && <h4> Welcome {user.username} </h4>}
             <ul>
-            <React.Fragment>
-
+                <React.Fragment>
                         <Link to ='/Home'> <li>Home</li> </Link>
                         <Link to ='/Products'> <li>Products</li> </Link>
                         <Link to ='/ShoppingCart'> <li>Shopping Cart</li> </Link>
                         <Link to ='/CreateProduct'> <li>Add New Product</li> </Link>
+                        <Link onClick={() => logoutUser()}> <li> Logout </li></Link>
+                        <SearchBar />
                 </React.Fragment>
-                {!user &&
+            
+            {!user &&
                     <React.Fragment>
                         <Link to ='/Login'> <li>Login</li> </Link>
                         <Link to ='/Register'> <li>Register</li> </Link>                   
-                    </React.Fragment>
-                }
-                {user && 
-                    <React.Fragment>
-                       
-                        <Link onClick={() => logoutUser()}> <li> Logout </li></Link>
-                    
-                    </React.Fragment>
-                }
+                    </React.Fragment>          
+         
+            }    
             </ul>
-   
+         
 </nav>
     );
 }

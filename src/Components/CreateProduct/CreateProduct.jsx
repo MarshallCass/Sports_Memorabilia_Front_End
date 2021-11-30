@@ -43,7 +43,7 @@ render() {
         <div className="row">
                 <div className="col">
                 <div className="title">
-                <h1> Add New Product </h1>
+                <h1 className="fs-4 fw-bold mb-2 text-uppercase">Add Product</h1>
                 </div>
                     <input type="text" name = "name" id="typeNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.name} />
                     <label class="form-label fs-6 fw-bold" for="typeNameX">Product Name</label>

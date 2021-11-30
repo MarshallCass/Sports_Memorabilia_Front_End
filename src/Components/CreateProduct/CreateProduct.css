@@ -1,5 +1,5 @@
 .title {
-  max-width: 50%;
+  max-width: 90%;
   display: flex;
   position: relative;
   border-radius: 15px;
@@ -58,17 +58,9 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #45a049;
 }
-h1 {
+h1{
   text-align: center;
 }
-h2 {
-  
-  margin-left: 30px;
-}
-p {
-  text-align: center;
-}
-
 .col {
   float: right;
   width: 100%;

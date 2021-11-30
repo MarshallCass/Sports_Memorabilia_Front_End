@@ -48,14 +48,6 @@ nav a {
         text-align: left;
       }
 
-.search-bar{
-    margin-inline-start: 60%;
-    padding: 8px 15px;
-    max-width: 40%;
-    position: relative;
-    
-    
-}
 
     /* style inputs and link buttons */
 input,
@@ -78,7 +70,7 @@ input:hover,
 }
  
 /* style the submit button */
-button-nav[type="submit"] {
+button[type="button"] {
     border-radius: 10px;
     padding: 6px 5px 5px 18px;
     background-color: #567956;
@@ -88,7 +80,7 @@ button-nav[type="submit"] {
     height: auto;
 }
  
-button-nav[type="submit"]:hover {
+button[type="submit"]:hover {
     background-color: #45a049;
     width: 50px;
     border-radius: 10px;
