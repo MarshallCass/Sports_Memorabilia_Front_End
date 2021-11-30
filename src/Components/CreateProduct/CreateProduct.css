@@ -1,3 +1,19 @@
+.title {
+  max-width: 50%;
+  display: flex;
+  position: relative;
+  border-radius: 15px;
+  background-color: #606a74;
+  padding: 2.5% 0 5% 0;
+  column-count: 1;
+  column-width: auto;
+}
+h1 {
+    font-size: x-large;
+    text-align: center;
+}
+
+
 /* style the container */
 .container {
   max-width: 50%;

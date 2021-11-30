@@ -39,8 +39,12 @@ class CreateProduct extends Component {
 render() {
     return (
 <div className="container">
-            <form onSubmit={this.handleSubmit} className="form-addProduct">
-                <ul class="list-group list-group-flush">
+    <form onSubmit={this.handleSubmit} className="form-addProduct">
+        <div className="row">
+                <div className="col">
+                <div className="title">
+                <h1> Add New Product </h1>
+                </div>
                     <input type="text" name = "name" id="typeNameX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.name} />
                     <label class="form-label fs-6 fw-bold" for="typeNameX">Product Name</label>
                     <input type="text" name = "description" id="typeDescriptionX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.description} />
@@ -53,7 +57,8 @@ render() {
                 <div class="card-footer">
                     <button class="btn btn-outline-light btn-lg" type="submit">Add Product</button>
                 </div>
-                </ul>
+            </div>
+        </div>
     </form>
 </div>
 

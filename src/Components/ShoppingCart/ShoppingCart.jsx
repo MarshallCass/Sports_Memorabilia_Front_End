@@ -15,7 +15,7 @@ const ShoppingCart = (props) => {
                         
                     </tr>
                 </thead>
-                {props.cartProducts.map((cart) => {   
+                {/* {props.cartProducts.map((cart) => {   
                     return (
                         <tbody>
                             <tr>                        
@@ -27,7 +27,7 @@ const ShoppingCart = (props) => {
                             </tr>              
                         </tbody>
                     )
-                })}
+                })} */}
             </table>
         </div>
     );

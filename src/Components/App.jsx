@@ -21,15 +21,15 @@ class App extends Component {
         this.state = {
             loggedInUser: null,
             products: [],
-            shoppingCart: []
+            shoppingCart: [],
         };
     }
 
     componentDidMount() {
         
         const jwt = localStorage.getItem('token');
-        
         this.getAllProducts();
+
         try {
             const user = jwtDecode(jwt);
             this.setState({loggedInUser: user });
@@ -37,7 +37,6 @@ class App extends Component {
         } catch (error) {
             console.log(error);
         }
-        this.addNewProduct();
     }
 
     registerNewUser = async (user) => {
@@ -105,28 +104,41 @@ class App extends Component {
             shoppingCart: response.data
         });
     }
+    logoutUser = () => {
+        localStorage.removeItem('token');
+        this.setState({
+            loggedInUser: false,
+        })
+        window.location('/')
+    }
 
     render() {
-        const user = this.state.user;
+const user = this.state.loggedInUser
         return (
             <div>
-                <NavBar/>
+                
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
+                <div>
+                <NavBar user={user}/>
+                </div>
+
                 <Switch>
-                <Route path='/profile' render={props => {
+                <Route path='/' render={(props) => {
                     if (!user) {
                         return <Redirect to='/Login' />;
                     } else {
-                        return(<DisplayProducts {...props} products={this.state.products}/>) 
+                        return(<Redirect to='/Home' {...props} user={user}/>) 
                         }
                     }}
-                />
+                />               
+                
                 <Route path='/Login' render={props => <Login {...props} loginUser={this.loginUser}/>} />
                 <Route path='/Register' render={props => <Register {...props} registerNewUser={this.registerNewUser}/>} /> 
                 <Route path='/Home' />              
                 <Route path='/Products' render={props => <DisplayProducts {...props} products={this.state.products}/>} />               
                 <Route path='/createProduct' render={props => <CreateProduct {...props} addNewProduct={this.addNewProduct} />} />
                 <Route path='/ShoppingCart' render={props => <ShoppingCart {...props} cartProducts={this.state.shoppingCart} />} />
+                {/* <Route path='/logout' component={Logout}/> */}
                 </Switch>
                 <Footer/>
                 
