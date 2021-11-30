@@ -22,7 +22,7 @@ const ShoppingCart = (props) => {
                                 <td>{cart.UserId}</td>
                                 <td>{cart.ProductId}</td>
                                 <td>{cart.quantity}</td>
-                                <td><button type="button" onClick={() => props.deleteCartProduct(ProductId)}>Remove</button></td>
+                                {/* <td><button type="button" onClick={() => props.deleteCartProduct(ProductId)}>Remove</button></td> */}
 
                             </tr>              
                         </tbody>

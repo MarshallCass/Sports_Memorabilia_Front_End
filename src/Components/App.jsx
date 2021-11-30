@@ -67,12 +67,25 @@ class App extends Component {
                 jwt: response.data.token
             });
             localStorage.setItem('token', response.data.token);
+<<<<<<< HEAD
 
+=======
+            
+            
+>>>>>>> 04be7f368cdb8ecc506d8cfc5d51e085b28b868e
 
         } catch (error) {
             alert('Invalid username or password')
         }
   
+    }
+
+    logoutUser = () => {
+        localStorage.removeItem('token');
+        this.setState({
+            loggedInUser: false,
+        })
+        window.location('/')
     }
 
     getAllProducts = async () => {
@@ -116,14 +129,14 @@ class App extends Component {
         const user = this.state.user;
         return (
             <div>
-                <NavBar/>
+                <NavBar logout={this.logoutUser}/>
                 {/* <CreateProduct  test="test" addNewProduct={this.addNewProduct} /> */}
                 <Switch>
-                <Route path='/profile' render={props => {
+                <Route path='/Profile' render={props => {
                     if (!user) {
                         return <Redirect to='/Login' />;
                     } else {
-                        return(<DisplayProducts {...props} products={this.state.products}/>) 
+                        return(<Route path= '/' />) 
                         }
                     }}
                 />
