@@ -10,7 +10,6 @@ import ShoppingCart from './ShoppingCart/ShoppingCart'
 import jwtDecode from 'jwt-decode';
 import axios from 'axios';
 import Footer from './Footer/Footer';
-import SearchBar from './SearchBar/SearchBar';
 
 // const tokenFromStorage = localStorage.getItem('token');
 // localStorage.removeItem('token')
@@ -125,7 +124,9 @@ const user = this.state.loggedInUser
                 <div>
                 <NavBar user={user} />
                 </div>
+                <div>
                 <button onClick={this.getCartProducts}> Update Shopping Cart</button>
+                </div>
                 <Switch>
                 <Route path='/' exact={true} render={(props) => {
                     if (!user) {

@@ -56,13 +56,13 @@ class Login extends Component {
                     <input type="password" name= "password" id="typePasswordX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.password} />
                     <label className="form-label fs-5 fw-bold" for="typePasswordX">Password</label>
                   </div>
+                  <div class="card-footer">
                   <div>
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                  </div>
-                  <div>
-                  <Link to ='/Register'>
-                 <button class="btn btn-outline-light btn-lg px-5 fw-">Register</button>
-                 </Link>
+                  <button class="btn btn-outline-light btn-lg" type="submit">Login</button>
+                  </div>                  
+                    <Link to ='/Register'>
+                        <button class="btn btn-outline-light btn-lg" type="submit">Register</button>
+                    </Link>
                   </div>
             </div>
             
