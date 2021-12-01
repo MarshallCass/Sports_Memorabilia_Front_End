@@ -4,10 +4,10 @@
 
 .search-bar{
     margin-inline-start: 70%;
-    margin-inline-end: 90%;
+    margin-inline-end: 80%;
     padding: 8px ;
-    width: 525px;
-    position: fixed; 
+    width: 350px;
+    position: sticky; 
 }
 
     /* style inputs and link buttons */

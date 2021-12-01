@@ -14,7 +14,7 @@ const NavBar = ({user}) => {
     return (
 <nav>
             
-            {user && <h4> Welcome {user.username} </h4>}
+           {user && <h4> Welcome {user.username} </h4>}
             <ul>
                 <React.Fragment>
                         <Link to ='/Home'> <li>Home</li> </Link>
@@ -24,7 +24,7 @@ const NavBar = ({user}) => {
                         <Link onClick={() => logoutUser()}> <li> Logout </li></Link>
                         <SearchBar />
                 </React.Fragment>
-            
+           
             {!user &&
                     <React.Fragment>
                         <Link to ='/Login'> <li>Login</li> </Link>

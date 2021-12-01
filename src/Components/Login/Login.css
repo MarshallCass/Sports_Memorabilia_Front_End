@@ -33,14 +33,39 @@ input:hover,
  
  
 /* style the submit button */
-button[type="submit"] {
+.LoginButton[type="submit"] {
   background-color: #4caf50;
   color: white;
   cursor: pointer;
+  width: auto;
+  position: relative;
 }
  
-button[type="submit"]:hover {
+.LoginButton[type="submit"]:hover {
   background-color: #45a049;
+  color:black;
+  cursor: pointer;
+  width: auto;
+  transform: scale(1);
+  position: relative;
+}
+
+/* style the submit button */
+.button[type="submit"] {
+  background-color: #4caf50;
+  color: black;
+  cursor: pointer;
+  width: auto;
+  position: relative;
+}
+ 
+.button[type="submit"]:hover {
+  background-color: #45a049;
+  color:black;
+  cursor: pointer;
+  width: auto;
+  transform: scale(1);
+  position: relative;
 }
 
 .col {

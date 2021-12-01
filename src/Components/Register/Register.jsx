@@ -78,8 +78,8 @@ class Register extends Component {
                   <input type="text" name = "phonenumber" id="typePhonenumberX" class="form-control form-control-lg" onChange={this.handleChange} value={this.state.phonenumber} />
                   <label class="form-label fs-6 fw-bold" for="typePhonenumberX">Phone Number</label>
                 </div>
-                <div>  
-                  <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+                <div class="card-footer">
+                    <button class="btn btn-outline-light btn-lg" type="submit">Register</button>
                 </div>
             </div>  
         </div>
